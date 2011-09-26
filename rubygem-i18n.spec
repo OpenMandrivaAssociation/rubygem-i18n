@@ -31,7 +31,7 @@ Ruby Internationalization and localization solution.
 
 %package doc
 Summary: Documentation for %{name}
-Group: Documentation
+Group:		Development/Ruby
 Requires:%{name} = %{version}-%{release}
 
 %description doc
