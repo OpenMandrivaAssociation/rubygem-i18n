@@ -16,6 +16,7 @@ Requires:	rubygems
 Requires:	ruby(abi) = 1.8
 BuildRequires:	ruby(abi) = 1.8
 BuildRequires:	rubygems
+BuildRequires:	ruby-rdoc
 %if %{enable_check} > 0
 BuildRequires:	rubygem(mocha)
 # test_declarative is not available in Fedora yet.
