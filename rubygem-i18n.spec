@@ -6,15 +6,13 @@
 
 Summary:	New wave Internationalization support for Ruby
 Name:		rubygem-%{gemname}
-Version:	0.5.0
+Version:	0.6.0
 Release:	%mkrel 1
 Group:		Development/Ruby
 License:	MIT and (GPLv2 or Ruby)
 URL:		http://github.com/svenfuchs/i18n
 Source0:	http://rubygems.org/gems/%{gemname}-%{version}.gem
 Requires:	rubygems
-Requires:	ruby(abi) = 1.8
-BuildRequires:	ruby(abi) = 1.8
 BuildRequires:	rubygems
 BuildRequires:	ruby-rdoc
 %if %{enable_check} > 0
