@@ -1,79 +1,65 @@
-%define gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%define gemname i18n
-%define geminstdir %{gemdir}/gems/%{gemname}-%{version}
-
-%define enable_check 0
+# Generated from i18n-0.6.0.gem by gem2rpm5 0.6.6 -*- rpm-spec -*-
+%define	rbname	i18n
 
 Summary:	New wave Internationalization support for Ruby
-Name:		rubygem-%{gemname}
+Name:		rubygem-%{rbname}
+
 Version:	0.6.0
-Release:	%mkrel 1
+Release:	1
 Group:		Development/Ruby
-License:	MIT and (GPLv2 or Ruby)
+License:	GPLv2+ or Ruby
 URL:		http://github.com/svenfuchs/i18n
-Source0:	http://rubygems.org/gems/%{gemname}-%{version}.gem
-Requires:	rubygems
-BuildRequires:	rubygems
-BuildRequires:	ruby-rdoc
-%if %{enable_check} > 0
-BuildRequires:	rubygem(mocha)
-# test_declarative is not available in Fedora yet.
-BuildRequires:	rubygem(test_declarative)
-%endif
+Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
+BuildRequires:	rubygems >= 1.3.5
 BuildArch:	noarch
-Provides:	rubygem(%{gemname}) = %{version}
 
 %description
-Ruby Internationalization and localization solution.
+New wave Internationalization support for Ruby.
 
+%package	doc
+Summary:	Documentation for %{name}
+Group:		Books/Computer books
+Requires:	%{name} = %{EVRD}
 
-%package doc
-Summary: Documentation for %{name}
-Group:		Development/Ruby
-Requires:%{name} = %{version}-%{release}
-
-%description doc
-Documentation for %{name}
+%description	doc
+Documents, RDoc & RI documentation for %{name}.
 
 %prep
-%setup -q -c -T
-mkdir -p .%{gemdir}
-gem install --local --install-dir .%{gemdir} \
-            --force --rdoc %{SOURCE0}
+%setup -q
 
 %build
+%gem_build
 
 %install
-mkdir -p %{buildroot}%{gemdir}
-cp -a .%{gemdir}/* \
-        %{buildroot}%{gemdir}/
-chmod -x %{buildroot}%{geminstdir}/MIT-LICENSE
-chmod -x %{buildroot}%{geminstdir}/lib/i18n.rb
-
-%if %{enable_check} > 0
-%check
-pushd .%{geminstdir}
-
-# Bundler just complicates everything in our case, remove it.
-sed -i -e "s|require 'bundler/setup'||" test/test_helper.rb
-
-RUBYOPT="rubygems I%{buildroot}%{geminstdir}/lib" testrb test/all.rb
-
-popd
-%endif
+%gem_install
 
 %files
-%defattr(-, root, root, -)
-%dir %{geminstdir}
-%{geminstdir}/lib
-%doc %{geminstdir}/README.textile
-%doc %{geminstdir}/MIT-LICENSE
-%doc %{geminstdir}/CHANGELOG.textile
-%{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/backend
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/backend/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/gettext
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/gettext/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/interpolate
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/interpolate/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/*.rb
+%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization
+%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization/*.rb
+%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
 
 %files doc
-%defattr(-, root, root, -)
-%{geminstdir}/ci
-%{geminstdir}/test
-%doc %{gemdir}/doc/%{gemname}-%{version}
+%{ruby_gemdir}/doc/%{rbname}-%{version}
