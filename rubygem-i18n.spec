@@ -63,3 +63,17 @@ Documents, RDoc & RI documentation for %{name}.
 
 %files doc
 %{ruby_gemdir}/doc/%{rbname}-%{version}
+
+
+%changelog
+* Sun Feb 12 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.6.0-1
++ Revision: 773466
+- regenerate spec with gem2rpm5
+- new version
+
+* Mon Sep 26 2011 Alexander Barakin <abarakin@mandriva.org> 0.5.0-1
++ Revision: 701352
+- group fix
+- missing rdoc fix
+- imported package rubygem-i18n
+
