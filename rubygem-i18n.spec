@@ -4,7 +4,7 @@
 Summary:	New wave Internationalization support for Ruby
 Name:		rubygem-%{rbname}
 
-Version:	0.6.0
+Version:	0.6.9
 Release:	1
 Group:		Development/Ruby
 License:	GPLv2+ or Ruby
