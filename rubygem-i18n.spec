@@ -5,7 +5,7 @@ Summary:	New wave Internationalization support for Ruby
 Name:		rubygem-%{rbname}
 
 Version:	0.6.9
-Release:	1
+Release:	4
 Group:		Development/Ruby
 License:	GPLv2+ or Ruby
 URL:		http://github.com/svenfuchs/i18n
@@ -34,46 +34,33 @@ Documents, RDoc & RI documentation for %{name}.
 %gem_install
 
 %files
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/backend
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/backend/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/gettext
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/gettext/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/interpolate
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/interpolate/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/*.rb
-%dir %{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization
-%{ruby_gemdir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization/*.rb
-%{ruby_gemdir}/specifications/%{rbname}-%{version}.gemspec
+%dir %{gem_dir}/gems/%{rbname}-%{version}
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib
+%{gem_dir}/gems/%{rbname}-%{version}/lib/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/backend
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/backend/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/kernel/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/core_ext/string/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/gettext
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/gettext/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/interpolate
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/interpolate/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/locale
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/locale/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/locale/tag/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/tests
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/tests/*.rb
+%dir %{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization
+%{gem_dir}/gems/%{rbname}-%{version}/lib/i18n/tests/localization/*.rb
+%{gem_dir}/specifications/%{rbname}-%{version}.gemspec
 
 %files doc
-%{ruby_gemdir}/doc/%{rbname}-%{version}
-
-
-%changelog
-* Sun Feb 12 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.6.0-1
-+ Revision: 773466
-- regenerate spec with gem2rpm5
-- new version
-
-* Mon Sep 26 2011 Alexander Barakin <abarakin@mandriva.org> 0.5.0-1
-+ Revision: 701352
-- group fix
-- missing rdoc fix
-- imported package rubygem-i18n
+%{gem_dir}/doc/%{rbname}-%{version}
 
