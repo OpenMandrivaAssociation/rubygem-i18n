@@ -8,7 +8,7 @@ Version:	0.6.9
 Release:	5
 Group:		Development/Ruby
 License:	GPLv2+ or Ruby
-URL:		http://github.com/svenfuchs/i18n
+URL:		https://github.com/svenfuchs/i18n
 Source0:	http://rubygems.org/gems/%{rbname}-%{version}.gem
 BuildRequires:	rubygems >= 1.3.5
 BuildArch:	noarch
